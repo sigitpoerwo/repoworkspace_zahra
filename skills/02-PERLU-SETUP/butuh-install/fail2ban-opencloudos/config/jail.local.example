@@ -1,0 +1,140 @@
+# Fail2Ban Custom Jail Configuration
+# Add this to /etc/fail2ban/jail.local
+
+[DEFAULT]
+# Ban action (firewalld for RHEL/CentOS)
+banaction = firewallcmd-rich-rules
+
+# Time settings
+findtime = 10m
+bantime = 1h
+maxretry = 5
+
+# Whitelist IPs (add your trusted IPs here)
+ignoreip = 127.0.0.1/8 ::1
+# ignoreip = 127.0.0.1/8 192.168.1.0/24 YOUR_TRUSTED_IP
+
+# Email notifications (optional)
+# destemail = admin@example.com
+# sendername = Fail2Ban@hostname
+# action = %(action_mwl)s
+
+# ============================================
+# SSH Protection (Default)
+# ============================================
+[sshd]
+enabled = true
+backend = polling
+logpath = /var/log/secure
+port = ssh
+protocol = tcp
+maxretry = 5
+findtime = 10m
+bantime = 1h
+
+# ============================================
+# Nginx Protection
+# ============================================
+[nginx-http-auth]
+enabled = false
+port = http,https
+logpath = /var/log/nginx/error.log
+maxretry = 3
+findtime = 10m
+bantime = 2h
+
+[nginx-noscript]
+enabled = false
+port = http,https
+logpath = /var/log/nginx/access.log
+maxretry = 6
+findtime = 10m
+bantime = 1h
+
+[nginx-badbots]
+enabled = false
+port = http,https
+logpath = /var/log/nginx/access.log
+maxretry = 2
+findtime = 10m
+bantime = 24h
+
+[nginx-noproxy]
+enabled = false
+port = http,https
+logpath = /var/log/nginx/access.log
+maxretry = 2
+findtime = 10m
+bantime = 24h
+
+# ============================================
+# Apache Protection
+# ============================================
+[apache-auth]
+enabled = false
+port = http,https
+logpath = /var/log/httpd/error_log
+maxretry = 3
+findtime = 10m
+bantime = 2h
+
+[apache-badbots]
+enabled = false
+port = http,https
+logpath = /var/log/httpd/access_log
+maxretry = 2
+findtime = 10m
+bantime = 24h
+
+[apache-noscript]
+enabled = false
+port = http,https
+logpath = /var/log/httpd/error_log
+maxretry = 6
+findtime = 10m
+bantime = 1h
+
+# ============================================
+# WordPress Protection
+# ============================================
+[wordpress-auth]
+enabled = false
+port = http,https
+logpath = /var/log/nginx/access.log
+# logpath = /var/log/httpd/access_log
+maxretry = 3
+findtime = 10m
+bantime = 2h
+
+# ============================================
+# Custom Service Example
+# ============================================
+# [custom-service]
+# enabled = false
+# port = 8080
+# logpath = /var/log/custom-service.log
+# maxretry = 5
+# findtime = 10m
+# bantime = 1h
+
+# ============================================
+# Notes
+# ============================================
+# 
+# To enable a jail:
+#   1. Change "enabled = false" to "enabled = true"
+#   2. Verify logpath exists
+#   3. Restart fail2ban: systemctl restart fail2ban
+#
+# To test configuration:
+#   fail2ban-server -t
+#
+# To check jail status:
+#   fail2ban-client status <jail-name>
+#
+# Ban time formats:
+#   - 10m = 10 minutes
+#   - 1h = 1 hour
+#   - 1d = 1 day
+#   - 1w = 1 week
+#

@@ -1,0 +1,85 @@
+# API Keys & Tokens
+*API_KEY*.md
+*API_TOKENS*.md
+*TOKEN*.md
+SERVICE_API_KEYS.md
+ADDITIONAL_API_KEYS.md
+NVIDIA_API*.md
+
+# OpenClaw Configuration
+openclaw.json
+openclaw.*.json
+opencode.json
+
+# Credentials & Authentication
+credentials/
+identity/
+devices/
+.openclaw/
+
+# Runtime & State
+agents/
+backups/
+browser/
+delivery-queue/
+logs/
+memory/
+cron/
+subagents/
+
+# Personal Data
+ZAHRA_MAURITA_PROFILE.md
+
+# Kilo & Worktrees
+.kilo/
+
+# Telegram
+telegram/
+
+# Screenshots & Media
+screenshots/
+media/
+
+# Research (may contain sensitive data)
+research/
+
+# Temporary
+temp_*/
+temp-*/
+*.tmp
+*.bak
+
+# Node modules
+node_modules/
+.npm/
+.yarn/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+
+# Build
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

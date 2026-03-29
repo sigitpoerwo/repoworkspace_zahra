@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Getting Started with OpenClaw",
+    "content": "<h1>Welcome to OpenClaw</h1><p>OpenClaw is a powerful AI assistant that helps you automate tasks and improve productivity.</p><h2>Key Features</h2><ul><li>Task automation</li><li>Content generation</li><li>WordPress integration</li><li>Self-learning system</li></ul>",
+    "status": "draft"
+  },
+  {
+    "title": "WordPress Integration Tutorial",
+    "content": "<h1>How to Integrate WordPress with OpenClaw</h1><p>This tutorial will guide you through setting up WordPress REST API integration.</p><h2>Steps</h2><ol><li>Enable REST API</li><li>Create Application Password</li><li>Configure OpenClaw</li><li>Test connection</li></ol>",
+    "status": "draft"
+  },
+  {
+    "title": "Self-Learning AI Systems",
+    "content": "<h1>Building Self-Learning AI</h1><p>Learn how AI agents can improve themselves through continuous learning from interactions.</p><h2>Principles</h2><ul><li>Capture everything</li><li>Analyze patterns</li><li>Learn from mistakes</li><li>Update rules</li><li>Test improvements</li></ul>",
+    "status": "draft"
+  }
+]

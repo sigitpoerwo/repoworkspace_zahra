@@ -1,0 +1,21 @@
+{
+  "wordpress": {
+    "url": "https://your-site.com",
+    "username": "your-username",
+    "app_password": "xxxx xxxx xxxx xxxx xxxx xxxx"
+  },
+  "defaults": {
+    "status": "draft",
+    "author": 1,
+    "template": "standard"
+  },
+  "formatting": {
+    "auto_excerpt": true,
+    "excerpt_length": 150,
+    "add_featured_image": false
+  },
+  "security": {
+    "rate_limit": 10,
+    "rate_limit_window": 60
+  }
+}

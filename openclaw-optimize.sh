@@ -38,17 +38,22 @@ echo ""
 echo "=== Applying Optimizations ==="
 echo ""
 
+# Extract current model
+CURRENT_MODEL=$(jq -r '.agents.main.model // "anthropic/claude-opus-4-6"' "$CONFIG_PATH")
+
 # Create optimized config
-cat > /tmp/openclaw-optimized.json <<'EOF'
+cat > /tmp/openclaw-optimized.json <<EOF
 {
   "agents": {
     "main": {
-      "model": "anthropic/claude-opus-4-6",
+      "model": "$CURRENT_MODEL",
       "thinking": "high",
       "temperature": 0.7,
       "maxTokens": 8192
     }
   },
+EOF
+cat >> /tmp/openclaw-optimized.json <<'EOF'
   "providers": {
     "anthropic": {
       "apiKey": "REPLACE_WITH_YOUR_API_KEY"
@@ -137,7 +142,7 @@ echo ""
 # Show what changed
 echo "=== Optimizations Applied ==="
 echo "✓ Gateway bind: lan (accessible from network)"
-echo "✓ Main model: claude-opus-4-6"
+echo "✓ Main model: $CURRENT_MODEL (preserved)"
 echo "✓ Thinking level: high"
 echo "✓ Memory: enabled (file-based)"
 echo "✓ Rate limiting: enabled"
